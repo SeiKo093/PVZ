@@ -8,7 +8,7 @@ class Seeds extends GameObject {
     this.plant = plant;
     this.posasa = pos;
     if(type == 0){
-      this.imai = loadImage("img/Sunflower_icon.png");
+      this.imai = loadImage("img/sunflower_icon.png");
       this.cost = 50;
     }else if(type == 1){
       this.imai = loadImage("img/peashooter_icon.png");
