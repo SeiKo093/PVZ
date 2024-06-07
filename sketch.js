@@ -23,7 +23,7 @@ function* spawnZombies() {
     this.zombieCounter++;
     yield sleep(timering);
 
-    if(this.zombieCounter == 5){
+    if(this.zombieCounter == 11){
       yield sleep(8000);
       this.reset = true;
       sndZombiesComing.play();
