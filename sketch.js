@@ -8,7 +8,7 @@ let bagg = null;
 
 let suns = 0;
 let oleada, zombieCounter;
-let sunRainTimer = 12000; //milli seconds between suns rainding down
+let sunRainTimer = 10000; //milli seconds between suns rainding down
 let reset = false;
 
 function* spawnZombies() {
@@ -23,15 +23,16 @@ function* spawnZombies() {
     this.zombieCounter++;
     yield sleep(timering);
 
-    if(this.zombieCounter == 11){
+    if(this.zombieCounter == 5){
       yield sleep(8000);
       this.reset = true;
       sndZombiesComing.play();
-      yield sleep(2500);
+      yield sleep(3000);
       this.zombieCounter = 0;
       this.oleada++;
+      this.suns = 100;
 
-      if(this.oleada == 3){timering = 6000}
+      if(this.oleada == 3){timering = 7000}
     }
   }
 }
@@ -71,7 +72,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(800, 520);
   backyard = new Backyard(createVector(100, 100));
   for (let i = 0; i < backyard.numCellsY; i++) {
     backyardObjects.push([]);
@@ -132,7 +133,6 @@ function draw() {
         row[i].deleteMe = true;
       }
     }
-    this.suns = 100;
     this.reset = false;
   }
 
